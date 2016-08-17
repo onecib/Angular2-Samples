@@ -1,0 +1,17 @@
+import {Component} from '@angular/core';
+import {TreeNode} from './tree-node';
+import {Store} from './redux/store';
+import {TreeNodeService} from './tree-node-service';
+
+@Component({
+  template:`<lazy-tree-view [root]="node"></lazy-tree-view>`,
+  providers:[Store,TreeNodeService]
+})
+
+export class CountryDemo{
+  node:TreeNode = null;
+
+  ngOnInit(){
+    this.node = new TreeNode('root','./tree-view-data/countries.json', '');
+  }
+}
